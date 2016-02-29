@@ -18,12 +18,6 @@ namespace ReflectionDemo
             InitializeComponent();
         }
 
-
-
-        private void lstProperties_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
             
         private void btnDiscoverType_Click(object sender, EventArgs e)
         {
@@ -33,21 +27,22 @@ namespace ReflectionDemo
             lstMethods.Items.Clear();
             lstProperties.Items.Clear();
             lstConstructors.Items.Clear();
-
+            
+            //Provides details about all the methods
             MethodInfo[] methods = T.GetMethods();
             foreach (MethodInfo method in methods)
             {
                 lstMethods.Items.Add(method.ReturnType.Name + " "+ method.Name);
             }
 
-
+            //Provides details about all the properties
             PropertyInfo[] properties = T.GetProperties();
             foreach (PropertyInfo property in properties)
             {
                 lstProperties.Items.Add(property.PropertyType.Name + " " + property.Name);
             }
 
-
+            //Provides details about all the constructors
             ConstructorInfo[] constructors = T.GetConstructors();
             foreach (ConstructorInfo constructor in constructors)
             {
@@ -55,9 +50,6 @@ namespace ReflectionDemo
             }
 
         }
-
-        
-
        
     }
 }
